@@ -1,5 +1,5 @@
 # Woordly  
-**About the project:** The port of the Wordly game in Telegram
+**About the project:** The port of the Wordle game in Telegram
 
 <a href="https://t.me/woordly_bot">
 <img alt="Static Badge" src="https://img.shields.io/badge/Demo_Bot-Woordly-blue?style=for-the-badge&logo=telegram">
