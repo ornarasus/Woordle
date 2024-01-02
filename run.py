@@ -19,7 +19,13 @@ for i in range(len(words)):
 @dp.message(Command("play"))
 async def start_game(msg: Message):
     games[msg.from_user.id] = Game()
-    await msg.answer("Игра началась!\nОтправьте слово из 5 букв")
+    await msg.answer("Игра началась!\n"
+                     "Отправьте слово из 5 букв\n\n"
+                     "Условные обозначения:\n"
+                     "- точно нет в целевом слове\n"
+                     "- <u>есть в слове, но не в том месте</u>\n"
+                     "- <b><i>есть в слове, и в этом месте</i></b>",
+                     parse_mode="html")
 
 
 @dp.message()
@@ -28,7 +34,6 @@ async def on_message(msg: Message):
         if len(msg.text) == 5:
             textmsg = msg.text.lower()
             if textmsg in words:
-
                 games[msg.from_user.id].add_attempts(textmsg)
                 text = f"Попытки({len(games[msg.from_user.id].attempts)}/{attempts}):"
                 for i in range(len(games[msg.from_user.id].attempts)):
@@ -43,7 +48,7 @@ async def on_message(msg: Message):
                                 text += f"<u>{l.text}</u>"
                 await msg.answer(text, parse_mode="html")
                 if games[msg.from_user.id].is_win:
-                    await msg.answer(f"Загаданое слово ({games[msg.from_user.id].answer}) было отгадано за {len(games[msg.from_user.id].attempts)} попыток(у/и).")
+                    await msg.answer("Загаданое слово было отгадано.")
                 elif len(games[msg.from_user.id].attempts) == 6:
                     await msg.answer(
                         f"Попытки закончились\nЗагаданое слово: {games[msg.from_user.id].answer}",
@@ -55,7 +60,6 @@ async def on_message(msg: Message):
             await msg.answer("В слове должно быть 5 букв!")
     else:
         await msg.answer("Чтобы запустить игру напишите /play")
-    ...
 
 
 if __name__ == "__main__":
