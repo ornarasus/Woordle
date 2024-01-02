@@ -7,10 +7,12 @@
 
 **Technology stack**
 * *API*: Aiogram
+* *Container*: Docker
 
 # Installation:
 1) Clone this repo: `git clone https://github.com/ornarasus/Woordly.git`
-2) Install package: `pip install aiogram`
-3) Setup token of telegram bot in `settings.py`
-4) Run: `python run.py`
-
+2) Change directory: `cd Woordly`
+3) Install package: `pip install aiogram`
+4) Setup token of telegram bot in `settings.py`
+5) Build image: `docker build --tag woordly .`
+6) Run container: `docker run woordly`
