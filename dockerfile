@@ -1,5 +1,7 @@
 FROM python:3.10-alpine
-WORKDIR /usr/src/woordly
+WORKDIR /root/woordly
 COPY . .
-RUN apk update && apk upgrade && apk add bash && pip install aiogram
-CMD ["python", "./run.py"]
+RUN apk update
+RUN apk add --no-cache bash
+RUN pip install aiogram
+ENTRYPOINT ["/root/woordly/run.py"]
