@@ -1,4 +1,3 @@
-import settings
 from attempt import Attempt
 from random import choice
 
@@ -8,8 +7,8 @@ class Game:
     attempts: list[Attempt]
     is_win: bool
 
-    def __init__(self):
-        self.answer = choice(settings.words)
+    def __init__(self, words: list[str]):
+        self.answer = choice(words)
         self.attempts = []
         self.is_win = False
 
