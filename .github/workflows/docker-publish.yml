@@ -3,12 +3,8 @@ name: Docker
 on:
   workflow_dispatch:
 
-env:
-  REGISTRY: ghcr.io
-
-
 jobs:
-  build:
+  push:
     runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
