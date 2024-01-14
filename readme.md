@@ -14,8 +14,7 @@
 ```sh
 git clone https://github.com/ornarasus/Woordle.git
 cd Woordle
-docker build --tag woordle .
-docker tag woordle ornarasus/woordle
+docker build --tag ornarasus/woordle .
 ```
 # Pull image
 ```sh
