@@ -19,4 +19,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build image
-        run: ls 
+        run: docker build --tag ornarasus/woordle . 
+      - name: Push image to Docker Hub
+        run: docker push ornarasus/woordle
