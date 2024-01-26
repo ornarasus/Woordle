@@ -16,7 +16,9 @@ jobs:
         with:
           python-version: 'pypy3.9'
       - run: pip install pytest
+      - run: pip install lxml
+      - run: pip install aiogram
       - name: Run bot on background
         uses: BerniWittmann/background-server-action@v1.1.1
         with:
-          command: pip install lxml, pip install aiogram, python run.py
+          command: python run.py
