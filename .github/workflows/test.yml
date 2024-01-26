@@ -19,7 +19,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: 'pypy3.9'
+          python-version: 'pypy3.10'
       - run: pip install pytest
       - run: pip install lxml
       - run: pip install aiogram
