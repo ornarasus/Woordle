@@ -19,5 +19,4 @@ jobs:
       - name: Run bot on background
         uses: BerniWittmann/background-server-action@v1.1.1
         with:
-          start: pip install lxml, pip install aiogram 
-          command: python run.py
+          command: pip install lxml, pip install aiogram, python run.py
