@@ -7,6 +7,7 @@ on:
 
 env:
   TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+  USER_TOKEN: ${{ secrets.USER }}
   COUNT_LETTERS: 5
   COUNT_ATTEMPTS: 6
 
@@ -24,6 +25,9 @@ jobs:
       - run: pip install lxml
       - run: pip install aiogram
       - name: Run bot on background
-        uses: BerniWittmann/background-server-action@v1.1.1
+        uses: miguelteixeiraa/action-run-in-background@v1
         with:
-          command: python run.py
+          script: |
+            python run.py
+          readiness-script: |
+            cat /etc/services        
