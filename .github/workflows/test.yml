@@ -5,6 +5,11 @@ on:
     branches:
     - main
 
+env:
+  TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+  COUNT_LETTERS: 5
+  COUNT_ATTEMPTS: 6
+
 jobs:
   test:
     runs-on: ubuntu-latest
