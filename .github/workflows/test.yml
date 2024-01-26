@@ -1,0 +1,23 @@
+name: Testing of Bot
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 'pypy3.9'
+      - run: pip install pytest
+      - name: Run bot on background
+        uses: BerniWittmann/background-server-action@v1.1.1
+        with:
+          start: pip install lxml, pip install aiogram 
+          command: python run.py
